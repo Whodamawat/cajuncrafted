@@ -9,22 +9,14 @@
 </head>
 <body>
     <header>
-        <div class="header-container">
-            <img src="Cajun-Crafted-Full-Logo.png" alt="Cajun Crafted Logo" class="logo">
-            <div class="header-actions">
-                <a href="cart.html" class="cart-icon">
-                    🛒 <!-- Unicode for a shopping cart icon -->
-                </a>
-                <a href="shop.html" class="shop-now-button">Shop Now</a>
-            </div>
-        </div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="woodworks.html">Woodworking</a>
-            <a href="photos.html">Photography</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+        <div id="header-container"></div>
+        <script>
+            fetch("header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("header-container").innerHTML = data;
+                });
+        </script>
     </header>
     <main>
         <h2>Hello! I’m Jeremy</h2>
@@ -43,7 +35,14 @@
         After spending about four years working for myself, primarily in construction, I felt the need for a change. I decided to transition into a completely different field—tech. I applied to a program that allowed me to complete a tech bootcamp and gain on-the-job training as a business analyst. A year later, here I am, working as a business analyst for a local company while continuing to pursue my passions on the side.</p>
     </main>
     <footer>
-        <p>&copy; 2020 Cajun Crafted LLC. All rights reserved.</p>
+        <div id="footer-container"></div>
+        <script>
+            fetch("footer.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("footer-container").innerHTML = data;
+                });
+        </script>
     </footer>
 </body>
 </html>
