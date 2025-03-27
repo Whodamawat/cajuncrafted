@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+        background: #f4f4f4;
+        color: #fff;
+        padding: 1rem 0;
+        text-align: center;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 20px; /* Add some padding from the edge */
+        }
+
+        .logo {
+            width: 600px; /* Adjust size as needed */
+            height: auto;
+        }
+
+        nav a {
+            font-weight: bold; /* Makes the navigation links bold */
+            color: #000000; /* Ensures the links use the current text color */            
+            text-decoration: none; /* Optional: Removes underline from links */
+            margin: 0 15px; /* Adds horizontal spacing between links */
+        }
+
+        nav a:hover {
+            color: #0078d7; /* Optional: Change color on hover */
+        }
+        .shop-now-button {
+        background-color: #ff0000; /* Red background */
+        color: #ffffff; /* White text */
+        padding: 0.5rem 1rem; /* Add padding for the button */
+        text-decoration: none; /* Remove underline */
+        border-radius: 5px; /* Rounded corners */
+        font-weight: bold; /* Bold text */
+        font-size: 1rem; /* Adjust font size */
+        display: inline-block; /* Ensure it behaves like a button */
+        text-align: center; /* Center the text */
+        }
+
+        .shop-now-button:hover {
+            background-color: #cc0000; /* Darker red on hover */
+        }
+
+        .cart-icon {
+            font-size: 1.5rem; /* Adjust size of the cart icon */
+            text-decoration: none; /* Removes underline */
+            color: #333; /* Adjust color */
+        }
+
+        .cart-icon:hover {
+            color: #0078d7; /* Optional: Change color on hover */
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .taskbar {
+            width: 300px;
+            background-color: #f4f4f4;
+            border-left: 1px solid #ccc;
+            padding: 20px;
+            position: fixed;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            overflow-y: auto;
+        }
+
+        .taskbar h2 {
+            margin-top: 0;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .cart-item button {
+            margin: 0 5px;
+        }
+
+        .cart-item span {
+            margin: 0 10px;
+        }
+
+        .cart-total {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        button {
+        background-color: #007BFF; /* Blue background */
+        color: white; /* White text */
+        border: none; /* Remove border */
+        border-radius: 5px; /* Rounded corners */
+        padding: 5px 10px; /* Add padding */
+        cursor: pointer; /* Pointer cursor on hover */
+        font-size: 14px; /* Adjust font size */
+        transition: background-color 0.3s ease; /* Smooth hover effect */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        button:active {
+            background-color: #003f7f; /* Even darker blue when clicked */
+        }
+
+        button:disabled {
+            background-color: #cccccc; /* Gray background for disabled buttons */
+            cursor: not-allowed; /* Not-allowed cursor for disabled buttons */
+        }
+
+        .trash-icon {
+        color: #ff4d4d; /* Red color for the trash icon */
+        font-size: 18px; /* Slightly larger size */
+        cursor: pointer; /* Pointer cursor on hover */
+        margin-left: 10px; /* Add spacing from other elements */
+        transition: transform 0.2s ease, color 0.2s ease; /* Smooth hover effect */
+        }
+
+        .trash-icon:hover {
+            color: #cc0000; /* Darker red on hover */
+            transform: scale(1.2); /* Slightly enlarge the icon on hover */
+        }
+
+        .trash-icon:active {
+            transform: scale(1); /* Reset scale when clicked */
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #333;
+            color: #fff;
+            margin-top: 2rem;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+            <div class="header-container">
+                <img src="Cajun-Crafted-Full-Logo.png" alt="Cajun Crafted Logo" class="logo">
+                <div class="header-actions">
+                    <a href="cart.html" class="cart-icon">
+                        🛒 <!-- Unicode for a shopping cart icon -->
+                    </a>
+                    <a href="shop.html" class="shop-now-button">Shop Now</a>
+                </div>
+            </div>
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="woodworks.html">Woodworking</a>
+                <a href="photos.html">Photography</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>            </div>
+    </header>
+    <main>
+        <h2>Products</h2>
+        <div id="product-list">
+            <!-- Products will be dynamically added here -->
+        </div>
+
+
+        <div class="taskbar">
+            <h2>Your Cart</h2>
+            <div id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <p class="cart-total">Total: $0.00</p>
+        </div>
+
+        <script>
+            // Sample product data
+            const products = [
+                { id: 1, name: "Wooden Table", price: 150 },
+                { id: 2, name: "Photo Print", price: 50 },
+                { id: 3, name: "Photo + Frame", price: 75 },
+            ];
+
+            // Initialize cart
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Function to update the cart display
+            function updateCartDisplay() {
+                const cartItemsContainer = document.getElementById('cart-items');
+                const cartTotalContainer = document.querySelector('.cart-total');
+                cartItemsContainer.innerHTML = '';
+                let total = 0;
+
+                cart.forEach(item => {
+                    const cartItemDiv = document.createElement('div');
+                    cartItemDiv.className = 'cart-item';
+
+                    cartItemDiv.innerHTML = `
+                        <span>${item.name}</span>
+                        <div>
+                            <button onclick="changeQuantity(${item.id}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="changeQuantity(${item.id}, 1)">+</button>
+                            <span class="trash-icon" onclick="removeFromCart(${item.id})" title="Remove">
+                                🗑
+                            </span>
+                        </div>
+                    `;
+
+                    cartItemsContainer.appendChild(cartItemDiv);
+                    total += item.price * item.quantity;
+                });
+
+                cartTotalContainer.textContent = `Total: $${total.toFixed(2)}`;
+            }
+
+            // Function to update the cart counter
+            function updateCartCounter() {
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                document.title = `Shop 🛒 (${totalItems})`;
+            }
+
+            // Function to add a product to the cart
+            function addToCart(productId) {
+                const product = products.find(p => p.id === productId);
+                const existingItem = cart.find(item => item.id === productId);
+
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({ ...product, quantity: 1 });
+                }
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartDisplay();
+                updateCartCounter();
+            }
+
+            // Function to change the quantity of an item
+            function changeQuantity(productId, change) {
+                const item = cart.find(item => item.id === productId);
+                if (item) {
+                    item.quantity += change;
+                    if (item.quantity <= 0) {
+                        removeFromCart(productId);
+                    } else {
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartDisplay();
+                        updateCartCounter();
+                    }
+                }
+            }
+
+            // Function to remove an item from the cart
+            function removeFromCart(productId) {
+                cart = cart.filter(item => item.id !== productId);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartDisplay();
+                updateCartCounter();
+            }
+
+            // Function to render products
+            function renderProducts() {
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+
+                products.forEach(product => {
+                    const productDiv = document.createElement('div');
+                    productDiv.className = 'product';
+
+                    productDiv.innerHTML = `
+                        <h3>${product.name}</h3>
+                        <p>Price: $${product.price}</p>
+                        <button onclick="addToCart(${product.id})">Add to Cart</button>
+                    `;
+
+                    productList.appendChild(productDiv);
+                });
+            }
+
+            // Initial render
+            renderProducts();
+            updateCartDisplay();
+            updateCartCounter();
+        </script>
+    </main>
+</body>
+</html>
