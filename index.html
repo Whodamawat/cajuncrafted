@@ -9,6 +9,17 @@
 </head>
     
 <body>
+
+    <header>
+        <div id="header-container"></div>
+        <script>
+            fetch("header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("header-container").innerHTML = data;
+                });
+        </script>
+    </header>
     
     <main>
         <h2>Hi, I'm Jeremy!</h2>
