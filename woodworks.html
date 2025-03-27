@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html>
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cajun Crafted</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+    
 <body>
     <header>
-        <div class="header-container">
-            <img src="Cajun-Crafted-Full-Logo.png" alt="Cajun Crafted Logo" class="logo">
-            <div class="header-actions">
-                <a href="cart.html" class="cart-icon">
-                    🛒 <!-- Unicode for a shopping cart icon -->
-                </a>
-                <a href="shop.html" class="shop-now-button">Shop Now</a>
-            </div>
-        </div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="woodworks.html">Woodworking</a>
-            <a href="photos.html">Photography</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+        <div id="header-container"></div>
+        <script>
+            fetch("header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("header-container").innerHTML = data;
+                });
+        </script>
     </header>
 <body>
+    
     <main>
         <h2>Previous Woodworking Projects</h2>
         <section class="gallery">
@@ -71,7 +66,15 @@
     </main>
 
     <footer>
-        <p>&copy; 2020 Cajun Crafted LLC. All rights reserved.</p>
+        <div id="footer-container"></div>
+        <script>
+            fetch("footer.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("footer-container").innerHTML = data;
+                });
+        </script>
     </footer>
+    
 </body>
 </html>
