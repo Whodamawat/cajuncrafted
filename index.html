@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cajun Crafted</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+    
 <body>
+    
     <header>
         <div class="header-container">
             <img src="Cajun-Crafted-Full-Logo.png" alt="Cajun Crafted Logo" class="logo">
@@ -25,6 +28,7 @@
             <a href="contact.html">Contact</a>
         </nav>
     </header>
+    
     <main>
         <h2>Hi, I'm Jeremy!</h2>
         <p>I’m a Louisiana native who has found a new home—and a creative spark—in the heart of Pittsburgh. My work is a blend of craftsmanship and storytelling, combining custom woodworking with my passion for nature photography.
@@ -35,8 +39,16 @@
         <br>
         At the heart of it all is a love for the craft—transforming raw materials into something meaningful. Whether through wood, photography, or a combination of both, I strive to create work that tells a story and stands the test of time.</p>
     </main>
+    
     <footer>
-        <p>&copy; 2020 Cajun Crafted LLC. All rights reserved.</p>
+        <div id="footer-container"></div>
+        <script>
+            fetch("footer.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("footer-container").innerHTML = data;
+                });
+        </script>
     </footer>
 </body>
 </html>
